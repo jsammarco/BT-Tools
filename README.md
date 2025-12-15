@@ -2,15 +2,16 @@
 
 BT-Tools is an early-stage toolkit aimed at finding and tracking nearby Bluetooth devices. The goal is to keep scanning even when devices rotate their MAC addresses and to optionally raise audible alerts (beeps) when specific devices are detected.
 
+The tooling already focuses on persistent scanning and handling rotating MAC addresses so nearby devices can be tracked over time, even when they randomize their identifiers.
+
 ## Project status
-This repository currently contains project scaffolding only. The core scanning and alerting code has not been published yet. The README outlines the intended direction so contributors know what is planned.
+This repository currently contains project scaffolding only. The core scanning and alerting code has not been published yet, but the design centers on long-running scans that can follow devices through MAC rotations.
 
 ## Planned features
-- **Persistent scanning:** Continuously monitor nearby Bluetooth advertisements.
-- **Rotating MAC handling:** Track devices even when they randomize their MAC address.
-- **Targeted alerts:** Emit configurable beeps when matching devices are found.
+- **Audible alerts:** Emit configurable beeps when matching devices are found.
 - **Filter presets:** Maintain allow/deny lists for common device types.
 - **Logging:** Store sightings with timestamps for later analysis.
+- **Device history view:** Summaries showing when and how often each device was observed.
 
 ## Environment assumptions
 - Linux with [BlueZ](http://www.bluez.org/) and `bluetoothd` running.
@@ -28,7 +29,7 @@ This repository currently contains project scaffolding only. The core scanning a
    python -m venv .venv
    source .venv/bin/activate
    ```
-3. Install dependencies once the requirements file is available:
+3. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
